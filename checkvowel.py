@@ -4,3 +4,5 @@ if c.isalpha():
         print 'Vowel'
     else:
         print 'Consonant'
+else:
+    print '0'
