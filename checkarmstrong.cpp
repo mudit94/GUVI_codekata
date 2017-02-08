@@ -10,7 +10,7 @@ s+=r*r*r;
 num/=10;
 }
 if(s==dup)
-cout<<"Armstrong number";
+cout<<"Armstrong number"<<endl;
 else
-cout<<"Not an Armstrong number";
+cout<<"Not an Armstrong number"<<endl;
 }
