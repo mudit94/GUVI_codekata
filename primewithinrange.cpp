@@ -24,7 +24,7 @@ for(i=a;i<=b;i++){
 
 res=isPrime(i);
 if(res==1)
-cout<<i<<"\n";
+cout<<i<<" ";
 else
 continue;
 }
