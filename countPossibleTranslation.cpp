@@ -20,5 +20,9 @@ int main(){
 char a[2000];
 cin>>a;
 int n=strlen(a);
+  char c=a[0];
+if(!isdigit(c))
+    cout<<"Invalid string";
+  else
 cout<<countPossibleTranslation(a,n)<<"\n";
 }
