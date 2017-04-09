@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unit Converter</title>
+<style>
+.left-content{
+  float: left;
+  margin-left: 16px;
+  margin-top: 72px;
+}
+.center-adjust{
+  padding-left: 32px;
+}
+#weight_div{
+  margin-left:90px;
+  padding-left: 250px;
+  padding-top: 50px;
+margin-top:-60px
+}
+#temp_div{
+  margin-left:90px;
+  padding-left: 250px;
+  padding-top: 50px;
+margin-top:-60px
+}
+#distance_div{
+  margin-left:90px;
+  padding-left: 250px;
+  padding-top: 50px;
+margin-top:-60px}
+.info{
+  margin-left: 200px;
+  padding-left: 100px;
+  margin-top: 100px;
+}
+table{
+  /*border-collapse: collapse;*/
+  border: 1px solid black;
+
+}
+td.metric{
+   border-bottom: 1px solid #ddd;
+}
+th{
+  height:50px;
+   border-bottom: 1px solid #ddd;
+}
+td{
+  height:75px;
+
+}
+td.clear{
+text-align: center;
+}
+td.value{
+padding-left: 11px;
+padding right:10px;
+}
+td.btn{
+  padding-left:11px;
+
+}
+td.endbtn{
+  padding-right:10px;
+}
+tr.content:hover {background-color: #f5f5f5}
+</style>
+<script>
+function ptok()
+{
+var a=parseInt(document.getElementById("val1").value);
+var c=a*0.4535;
+document.getElementById("val2").value=c;
+}
+function ktop()
+{
+var a=parseInt(document.getElementById("val1").value);
+var c=a*2.2;
+//alert(c);
+document.getElementById("val2").value=c;
+}
+function ctof()
+{
+var a=parseInt(document.getElementById("val5").value);
+var c=a*1.8 + 32;
+document.getElementById("val6").value=c;
+}
+function mtoy()
+{
+var a=parseInt(document.getElementById("val3").value);
+var c=a*1.09361;
+document.getElementById("val4").value=c;
+}
+function ftoc()
+{
+var a=parseInt(document.getElementById("val5").value);
+var c=(a-32)/1.8;
+document.getElementById("val6").value=c;
+}
+function ytom()
+{
+var a=parseInt(document.getElementById("val3").value);
+var c=a*0.914;
+document.getElementById("val4").value=c;
+}
+function showweight_div(){
+  document.getElementById("weight_div").style.display="block";
+  document.getElementById("temp_div").style.display="none";
+  document.getElementById("distance_div").style.display="none";
+  document.getElementById("info").style.display="none";
+}
+function showtemp_div(){
+  document.getElementById("temp_div").style.display="block";
+  document.getElementById("weight_div").style.display="none";
+  document.getElementById("distance_div").style.display="none";
+  document.getElementById("info").style.display="none";
+}
+function showdist_div(){
+  document.getElementById("temp_div").style.display="none";
+  document.getElementById("info").style.display="none";
+  document.getElementById("weight_div").style.display="none";
+  document.getElementById("distance_div").style.display="block";
+}
+function cl(){
+  document.getElementById("val1").value="";
+  document.getElementById("val2").value="";
+  document.getElementById("val3").value="";
+  document.getElementById("val4").value="";
+  document.getElementById("val5").value="";
+  document.getElementById("val6").value="";
+}
+</script>
+</head>
+<body>
+<h1 style="text-align:center; color:blue">Unit Converter</h1>
+<div class="left-content">
+  <table width="150px ">
+<th>Conversion metric</th>
+    <tr class="content">
+      <td class="metric"><center><button id="weight" onclick="showweight_div()">Weight</button></center>
+      </tr>
+      <tr class="content">
+        <td class="metric"><center><button id="Temperature" onclick="showtemp_div()">Temperature </button></center>
+        </td>
+      </tr>
+      <tr class="content">
+        <td class="metric"><center><button id="distance" onclick="showdist_div()">Distance</button></center>
+        </tr>
+  </table>
+</div>
+  <div class="center-adjust">
+    <div class="info" id="info">
+      <p> Please click on the options to the left to start the unit conversion
+      </p>
+    </div>
+    <div id="weight_div" hidden="true">
+      <h1 style="margin-left:50px;color:orange"> Weight Converter</h1>
+      <table id ="calctable">
+      <tr>
+      <td class="value">Your Value:</td>
+      <td> <input type="number" min="1" max="1000000000" name="val1" id="val1"></td>
+      </tr>
+      <br>
+      <td class="value">Answer:</td>
+      <td> <input type="text" id="val2" disabled="true"></td>
+      </tr>
+  <br>
+      <tr>
+
+        <td class="btn"><button  onclick="ktop()"> Kilo to pound</button>
+        </td>
+        <td class="clear"><button onclick="cl()" > Clear</button></td>
+        <td class="endbtn"><button  onclick="ptok()">pound to kilos</button></td>
+        </tr>
+      </table>
+      <br>
+
+    </div>
+    <div id="distance_div" hidden="true">
+        <h1 style="margin-left:50px;color:orange"> Distance Converter</h1>
+      <table id ="calctable" width="400px"height"200px">
+      <tr>
+      <td class="value" >Your Value:</td>
+      <td> <input type="number" min="1" max="1000000000" name="val3" id="val3"></td>
+      </tr>
+      <br>
+      <td class="value">Answer:</td>
+      <td> <input type="text" id="val4" disabled="true"></td>
+      </tr>
+  <br>
+      <tr>
+
+        <td class="btn"><button  onclick="mtoy()">Metre to Yards </button>
+        </td>
+        <td class="clear"><button onclick="cl()" > Clear</button></td>
+        <td class="endbtn"><button  onclick="ytom()">Yards to Meter</button></td>
+        </tr>
+      </table>
+      <br>
+
+    </div>
+    <div id="temp_div" hidden="true">
+        <h1 style="margin-left:50px;color:orange"> Temperature Converter</h1>
+      <table id ="calctable" width="400px"height"200px">
+      <tr>
+      <td class="value">Your Value:</td>
+      <td> <input type="number" min="1" max="1000000000" name="val5" id="val5"></td>
+      </tr>
+      <br>
+      <td class="value">Answer:</td>
+      <td> <input type="text" id="val6" disabled="true"></td>
+      </tr>
+  <br>
+      <tr>
+
+        <td class="btn"><button  onclick="ctof()">Celsius to Farenheit</button>
+        </td>
+        <td class="clear"><button onclick="cl()" > Clear</button></td>
+        <td class="endbtn"><button  onclick="ftoc()">Farenheit to  Celsius</button></td>
+        </tr>
+      </table>
+      <br>
+
+    </div>
+</div>
+</body>
+</html>
